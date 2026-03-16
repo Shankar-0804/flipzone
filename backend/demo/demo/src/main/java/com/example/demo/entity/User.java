@@ -1,4 +1,4 @@
-package com.example.blogapp.entity;
+package com.example.demo.entity;
 
 import jakarta.persistence.*;
 import java.time.LocalDate;
@@ -11,7 +11,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "name")
     private String name;
 
     @Column(name = "date")
@@ -23,11 +23,9 @@ public class User {
     @Column(name = "is_active")
     private Boolean isActive;
 
-    // Default Constructor
     public User() {
     }
 
-    // Parameterized Constructor
     public User(Long id, String name, LocalDate date, String mobileNo, Boolean isActive) {
         this.id = id;
         this.name = name;
@@ -35,8 +33,6 @@ public class User {
         this.mobileNo = mobileNo;
         this.isActive = isActive;
     }
-
-    // Getters and Setters
 
     public Long getId() {
         return id;
@@ -74,7 +70,7 @@ public class User {
         return isActive;
     }
 
-    public void setIsActive(Boolean isActive) {
-        this.isActive = isActive;
+    public void setIsActive(Boolean active) {
+        isActive = active;
     }
 }
