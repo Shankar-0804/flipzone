@@ -18,11 +18,18 @@ function App() {
     setStatus('Sending...');
     setError('');
 
+    const payload = {
+      name: form.username,
+      date: form.birthdate,
+      mobileNo: form.phone,
+      isActive: true,
+    };
+
     try {
-      const response = await fetch('http://localhost:8080/api/user-form', {
+      const response = await fetch('http://localhost:8080/api/users', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify(payload),
       });
 
       if (!response.ok) {
